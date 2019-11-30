@@ -1,0 +1,17 @@
+.style{
+    padding: 35x;
+    margin: 35px
+    
+}
+
+.rate{
+    color: #f5a623;
+    font-size: 50px
+}
+
+.col-md-6{
+    width: 150px;
+    height: 300px;
+    cursor: pointer;
+}
+

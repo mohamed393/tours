@@ -1,0 +1,30 @@
+<img style="width: 100% ;height: 100px; margin: 10px;" src="../../assets/Capture.PNG">
+
+<div class="container">
+    <ng-container class="style">
+
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h5 class="card-title">{{tour.title}}</h5>
+                    <ngb-rating class="rate" [(rate)]="tour.rating"></ngb-rating>
+                    <hr>
+                    <p class="card-text">{{tour.agencyname}}</p>
+                    <div class="row">
+                        <p class="col" class="card-text">{{tour.days}} <i class="far fa-calendar-alt"></i> </p>
+                        <p id="m" class="col" class="card-text">{{tour.mealplan}} <i class="fas fa-utensils"></i></p>
+                    </div>
+                    <p class="card-text">{{tour.description}}</p>
+
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <img style="height: 100%" [src]="tour.imageUrl" class="card-img" alt="...">
+            </div>
+
+        </div>
+
+    </ng-container>
+</div><br><br><br><br>
+<a style="margin: 200px 0px 0px 100px" routerLink="/">الرجوع الي القائمه السابقه</a>

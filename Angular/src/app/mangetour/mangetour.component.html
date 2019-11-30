@@ -1,0 +1,98 @@
+<div class="row">
+    <div class="col-md-6">
+        <div *ngIf="add" class="alert alert-success">Tour added Successfully</div>
+        <div *ngIf="notvalid" class="alert alert-danger">No Data Saved</div>
+        <div *ngIf="f.invalid &&f.touched" class="alert alert-danger">Invalid Form</div>
+        <form #f="ngForm" (ngSubmit)="f.valid? save(f.value):null">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input #title="ngModel" ngModel name="title" id="title" type="text" class="form-control" required>
+                <div *ngIf="title.touched && title.invalid" class="alert alert-danger">
+                    <div *ngIf="title.errors.required">Tour Title is Required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Name of Agency </label>
+                <input #agencname="ngModel" ngModel name="agencyname" id="title" type="text" class="form-control"
+                    required>
+                <div *ngIf="agencname.touched && agencname.invalid" class="alert alert-danger">
+                    <div *ngIf="agencname.errors.required">Agency Name is Required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Rating</label>
+                <input #rate="ngModel" ngModel name="rating" id="title" type="number"
+                    placeholder="Enter your rate from 1 to 5 " class="form-control" required>
+                <div *ngIf="rate.touched && rate.invalid" class="alert alert-danger">
+                    <div *ngIf="rate.errors.required">Rating is Required</div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="title">Description</label>
+                <input #desc="ngModel" ngModel name="description" id="title" type="text" class="form-control" required>
+                <div *ngIf="desc.touched && desc.invalid" class="alert alert-danger">
+                    <div *ngIf="desc.errors.required">Tour Description is Required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Meal plan</label>
+                <input #meal="ngModel" ngModel name="mealplan" id="title" type="text" class="form-control" required>
+                <div *ngIf="meal.touched && meal.invalid" class="alert alert-danger">
+                    <div *ngIf="meal.errors.required">Meal Plan is Required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Number of Days</label>
+                <input #day="ngModel" ngModel name="days" id="title" type="text" class="form-control" required>
+                <div *ngIf="day.touched && day.invalid" class="alert alert-danger">
+                    <div *ngIf="day.errors.required">Number of days is Required</div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="imageUrl">Image Url </label>
+                <input #imgeUrl="ngModel" ngModel name="imageUrl" id="imageUrl" Iype="text" class="form-control"
+                    required url>
+                <div *ngIf="imgeUrl.touched && imgeUrl.invalid" class="alert alert-danger">
+                    <div *ngIf="imgeUrl.errors.required">ImgeUrl is Required</div>
+                    <div *ngIf="imgeUrl.errors.url">Please enter a valid Url </div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Save"> <br><br>
+            <a routerLink='/'> الرجوع الى القائمه السابقه</a>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h5 class="card-title">{{title.value}}</h5>
+                        <ngb-rating class="rate" [(rate)]="rate.value"></ngb-rating>
+                        <hr>
+                        <p class="card-text">{{agencname.value}}</p>
+                        <div class="row">
+                            <p class="col" class="card-text">{{day.value}} <i class="far fa-calendar-alt"></i> </p>
+                            <p id="m" class="col" class="card-text">{{meal.value}} <i class="fas fa-utensils"></i></p>
+
+                        </div>
+
+                        <p class="card-text">{{desc.value}}</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img style="height: 100%" [src]="imgeUrl.value" class="card-img" alt="...">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

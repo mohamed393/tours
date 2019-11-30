@@ -1,0 +1,31 @@
+<img style="width: 100% ;height: 100px; margin: 20px;" src="../../assets/Capture.PNG">
+<div class="container">
+        <p>
+                <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search">
+            </p>
+    <ng-container class="style" *ngFor="let t of filteredTours">
+
+        <div class="card mb-3" [routerLink]="['/onetour',t._id]">
+            <div class="row no-gutters">
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h5 class="card-title">{{t.title}}</h5>
+                        <ngb-rating class="rate" [(rate)]="t.rating"></ngb-rating>
+                        <hr>
+                        <p class="card-text">{{t.agencyname}}</p>
+                        <div class="row">
+                            <p class="col" class="card-text">{{t.days}} <i class="far fa-calendar-alt"></i> </p>
+                            <p id="m" class="col" class="card-text">{{t.mealplan}} <i class="fas fa-utensils"></i></p>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img style="height: 100%" [src]="t.imageUrl" class="card-img" alt="...">
+                </div>
+
+            </div>
+        </div>
+    </ng-container>
+</div>
